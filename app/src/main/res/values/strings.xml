@@ -9,4 +9,5 @@
     <string name="buttonClear">CLR</string>
     <string name="square">x\u00B2</string>
     <string name="cubed">x\u00B3</string>
+    <string name="squareRoot">\u221A</string>
 </resources>

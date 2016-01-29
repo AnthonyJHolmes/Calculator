@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonClear;
     private Button buttonSquared;
     private Button buttonCubed;
+    private Button buttonSquareRoot;
     private TextView textResult;
 
     @Override
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         buttonClear = (Button) findViewById(R.id.buttonClear);
         buttonSquared = (Button) findViewById(R.id.squared);
         buttonCubed = (Button) findViewById(R.id.buttonCubed);
+        buttonSquareRoot =(Button) findViewById(R.id.buttonSquareRoot);
         textResult = (TextView) findViewById(R.id.textResult);
 
         buttonAddition.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +95,10 @@ public class MainActivity extends AppCompatActivity {
         buttonSquared.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (operand1.getText().length() > 0){
+                if ((operand1.getText().length() > 0) && (operand2.getText().length() > 0)) {
+                    Toast.makeText(MainActivity.this, "Please enter a number in either textfield, but not both", Toast.LENGTH_LONG).show();
+                }
+                else if (operand1.getText().length() > 0){
                     double oper1 = Double.parseDouble(operand1.getText().toString());
                     double theResult = oper1* oper1;
                     textResult.setText(Double.toString(theResult));
@@ -109,13 +114,35 @@ public class MainActivity extends AppCompatActivity {
         buttonCubed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (operand1.getText().length() > 0){
+                if ((operand1.getText().length() > 0) && (operand2.getText().length() > 0)) {
+                    Toast.makeText(MainActivity.this, "Please enter a number in either textfield, but not both", Toast.LENGTH_LONG).show();
+                }
+                else if (operand1.getText().length() > 0){
                     double oper1 = Double.parseDouble(operand1.getText().toString());
                     double theResult = oper1* oper1 *oper1;
                     textResult.setText(Double.toString(theResult));
                 }else if (operand2.getText().length() > 0){
                     double oper2 = Double.parseDouble(operand2.getText().toString());
                     double theResult = oper2* oper2 *oper2;
+                    textResult.setText(Double.toString(theResult));
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter a number in either textfield", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        buttonSquareRoot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ((operand1.getText().length() > 0) && (operand2.getText().length() > 0)) {
+                    Toast.makeText(MainActivity.this, "Please enter a number in either textfield, but not both", Toast.LENGTH_LONG).show();
+                }
+                else if (operand1.getText().length() > 0){
+                    double oper1 = Double.parseDouble(operand1.getText().toString());
+                    double theResult = Math.sqrt(oper1);
+                    textResult.setText(Double.toString(theResult));
+                }else if (operand2.getText().length() > 0){
+                    double oper2 = Double.parseDouble(operand2.getText().toString());
+                    double theResult = Math.sqrt(oper2);
                     textResult.setText(Double.toString(theResult));
                 } else {
                     Toast.makeText(MainActivity.this, "Please enter a number in either textfield", Toast.LENGTH_LONG).show();
