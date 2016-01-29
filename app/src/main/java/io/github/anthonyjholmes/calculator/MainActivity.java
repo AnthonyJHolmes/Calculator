@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonClear;
     private Button buttonSquared;
     private Button buttonCubed;
+    private Button buttonXX;
     private Button buttonSquareRoot;
     private TextView textResult;
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         buttonClear = (Button) findViewById(R.id.buttonClear);
         buttonSquared = (Button) findViewById(R.id.squared);
         buttonCubed = (Button) findViewById(R.id.buttonCubed);
+        buttonXX = (Button) findViewById(R.id.buttonXToTheX);
         buttonSquareRoot =(Button) findViewById(R.id.buttonSquareRoot);
         textResult = (TextView) findViewById(R.id.textResult);
 
@@ -146,6 +148,22 @@ public class MainActivity extends AppCompatActivity {
                     textResult.setText(Double.toString(theResult));
                 } else {
                     Toast.makeText(MainActivity.this, "Please enter a number in either textfield", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        buttonXX.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ((operand1.getText().length() > 0) && (operand2.getText().length() > 0)) {
+
+                    double oper1 = Double.parseDouble(operand1.getText().toString());
+                    double oper2 = Double.parseDouble(operand2.getText().toString());
+                    double theResult=Math.pow(oper1,oper2);
+                    textResult.setText(Double.toString(theResult));
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Please enter a numbers in both textfield. i.e. " +
+                            "First textfield is the number, second textfield is the power", Toast.LENGTH_LONG).show();
                 }
             }
         });

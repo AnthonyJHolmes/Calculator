@@ -4,10 +4,11 @@
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="multiply">*</string>
-    <string name="divide">/</string>
+    <string name="divide">\u00F7</string>
     <string name="theResult">Result</string>
     <string name="buttonClear">CLR</string>
     <string name="square">x\u00B2</string>
     <string name="cubed">x\u00B3</string>
     <string name="squareRoot">\u221A</string>
+    <string name="xToThePowerOfX">x\u02E3</string>
 </resources>
